@@ -18,7 +18,7 @@ namespace AlkoBot.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Alkobot.db");
+            optionsBuilder.UseSqlite("Filename=Alkobot.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -32,5 +32,6 @@ namespace AlkoBot.Models
             modelBuilder.Entity<Recipe>()
                 .HasKey(c => new { c.CocktailId, c.IngredientId });
         }
+ 
     }
 }
