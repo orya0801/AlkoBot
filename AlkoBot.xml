@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AlkoBot</name>
+    </assembly>
+    <members>
+        <member name="T:AlkoBot.Models.Bot.Commands">
+            <summary>
+            Статический класс, содержащий команды бота
+            </summary>
+        </member>
+        <member name="M:AlkoBot.Models.Bot.Commands.Command_hello">
+            <summary>
+            Приветствует пользователя.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AlkoBot.Models.Bot.Commands.Command_commands">
+            <summary>
+            Выводит доступные комманды.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

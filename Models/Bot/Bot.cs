@@ -1,31 +1,67 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Telegram.Bot;
-using AlkoBot.Models.Commands;
+using Telegram.Bot.Args;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
 
 namespace AlkoBot.Models.Bot
 {
-    public class Bot
+    public static class Bot
     {
-        private static TelegramBotClient botClient;
-        private static List<Command> commandsList;
+        private static ITelegramBotClient botClient;
 
-        public static IReadOnlyList<Command> Commands => commandsList.AsReadOnly();
-
-        public static async Task<TelegramBotClient> GetBotClientAsync()
+        public static async Task Main()
         {
-            if (botClient != null)
-                return botClient;
-
-            commandsList = new List<Command>();
-            commandsList.Add(new HelloCommand());
-
             botClient = new TelegramBotClient(AppSettings.Token);
 
-            Update[] updates = await botClient.GetUpdatesAsync();
+            var me = await botClient.GetMeAsync();
+            Console.Title = me.Username;
+
+            botClient.StartReceiving();
+
+            Console.WriteLine($"Waiting for messages from @{me.Username}");
+            botClient.OnMessage += BotOnMessage;
+            botClient.OnMessageEdited += BotOnMessage;
+            botClient.OnCallbackQuery += BotOnCallbackQuery;
+            botClient.OnInlineQuery += BotOnInlineQuery;
+            botClient.OnInlineResultChosen += BotOnInlineResultChosen;
+
+            Console.ReadLine();
+
+            botClient.StopReceiving();
+        }
+
+        private static void BotOnMessage(object sender, MessageEventArgs e)
+        {
+            Message message = e.Message;
+            Console.WriteLine($"Message Received.\nMessage type: {message.Type}\n");
+            if (message.Type == MessageType.Text)
+            {
+                message.Text = message.Text.ToLower();
+                var action = (message.Text.Split(' ').First()) switch
+                {
+                    "hello" => Commands.Command_hello(),
+                    "commands" => Commands.Command_commands(),
+                    _ => throw new NotImplementedException()
+                };
+            }
+        }
+
+        private static void BotOnCallbackQuery(object sender, CallbackQueryEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void BotOnInlineQuery(object sender, InlineQueryEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void BotOnInlineResultChosen(object sender, ChosenInlineResultEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

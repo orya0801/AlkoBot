@@ -156,7 +156,6 @@ C:\Users\user\Desktop\AlkoBot\AlkoBot\bin\Debug\netcoreapp3.1\runtimes\win-arm64
 C:\Users\user\Desktop\AlkoBot\AlkoBot\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\user\Desktop\AlkoBot\AlkoBot\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\user\Desktop\AlkoBot\AlkoBot\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\user\Desktop\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.csprojAssemblyReference.cache
 C:\Users\user\Desktop\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.AssemblyInfoInputs.cache
 C:\Users\user\Desktop\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.AssemblyInfo.cs
 C:\Users\user\Desktop\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.RazorAssemblyInfo.cache
@@ -180,3 +179,8 @@ C:\Users\user\Desktop\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\staticwebassets\Al
 C:\Users\user\Desktop\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.dll
 C:\Users\user\Desktop\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.pdb
 C:\Users\user\Desktop\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.genruntimeconfig.cache
+C:\Users\user\Desktop\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user\Desktop\AlkoBot\AlkoBot\bin\Debug\netcoreapp3.1\AlkoBot.xml
+C:\Users\user\Desktop\AlkoBot\AlkoBot\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\user\Desktop\AlkoBot\AlkoBot\bin\Debug\netcoreapp3.1\Telegram.Bot.dll
