@@ -13,7 +13,7 @@ namespace AlkoBot.Models.Bot
 
         public async Task Execute(Message message, ITelegramBotClient botClient)
         {
-            await botClient.SendTextMessageAsync(message.Chat.Id, "Hello!", ParseMode.MarkdownV2);
+            await botClient.SendTextMessageAsync(message.Chat.Id, $"Hello, __{message.From.Username}__!", ParseMode.MarkdownV2);
         }
     }
 }

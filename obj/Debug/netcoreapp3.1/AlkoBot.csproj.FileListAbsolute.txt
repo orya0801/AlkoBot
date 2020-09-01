@@ -181,6 +181,6 @@ C:\Users\user\Desktop\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.pdb
 C:\Users\user\Desktop\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.genruntimeconfig.cache
 C:\Users\user\Desktop\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.csproj.CoreCompileInputs.cache
 C:\Users\user\Desktop\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\user\Desktop\AlkoBot\AlkoBot\bin\Debug\netcoreapp3.1\AlkoBot.xml
 C:\Users\user\Desktop\AlkoBot\AlkoBot\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\user\Desktop\AlkoBot\AlkoBot\bin\Debug\netcoreapp3.1\Telegram.Bot.dll
+C:\Users\user\Desktop\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.csprojAssemblyReference.cache

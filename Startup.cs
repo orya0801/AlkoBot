@@ -11,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Sqlite;
 using AlkoBot.Models;
+using AlkoBot.Models.Bot;
+using Telegram.Bot;
 
 namespace AlkoBot
 {
@@ -61,6 +63,8 @@ namespace AlkoBot
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            Bot.Main().Wait();
         }
     }
 }

@@ -21,9 +21,9 @@ namespace AlkoBot.Models.Bot
             };
             string text = "Тыкаешь кнопочки, пишешь текстик, пьешь коктейли.\n" +
                           "\n" +
-                          "Текстовые команды:\n";
+                          "__*Текстовые команды:*__\n";
             foreach (ICommand c in commands)
-                text += $"{c.Name} - {c.Description}\n";
+                text += $"*{c.Name}* - {c.Description}\n";
             await botClient.SendTextMessageAsync(message.Chat.Id, text, ParseMode.MarkdownV2);
         }
     }

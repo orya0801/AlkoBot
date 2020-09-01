@@ -5,6 +5,7 @@ using Telegram.Bot;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.InlineQueryResults;
 
 namespace AlkoBot.Models.Bot
 {
@@ -51,19 +52,31 @@ namespace AlkoBot.Models.Bot
             }
         }
 
-        private static void BotOnCallbackQuery(object sender, CallbackQueryEventArgs e)
+        private static async void BotOnCallbackQuery(object sender, CallbackQueryEventArgs e)
         {
-            throw new NotImplementedException();
+            await botClient.AnswerCallbackQueryAsync(e.CallbackQuery.Id, 
+                $"Recived {e.CallbackQuery.Data}");
         }
 
-        private static void BotOnInlineQuery(object sender, InlineQueryEventArgs e)
+        private static async void BotOnInlineQuery(object sender, InlineQueryEventArgs e)
         {
-            throw new NotImplementedException();
+            InlineQuery inlineQuery = e.InlineQuery;
+            Console.WriteLine($"Received inline query from: {inlineQuery.From.Id}");
+
+            InlineQueryResultBase[] results =
+            {
+                new InlineQueryResultArticle(
+                    id: "1",
+                    title: "Hello", 
+                    inputMessageContent: new InputTextMessageContent("hello")) 
+            };
+
+            await botClient.AnswerInlineQueryAsync(inlineQuery.Id, results);
         }
 
         private static void BotOnInlineResultChosen(object sender, ChosenInlineResultEventArgs e)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Received inline result: {e.ChosenInlineResult.ResultId}");
         }
     }
 }
