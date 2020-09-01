@@ -33,7 +33,7 @@ namespace AlkoBot.Models.Bot
             botClient.StopReceiving();
         }
 
-        private static void BotOnMessage(object sender, MessageEventArgs e)
+        private static async void BotOnMessage(object sender, MessageEventArgs e)
         {
             Message message = e.Message;
             Console.WriteLine($"Message Received.\nMessage type: {message.Type}\n");
@@ -42,10 +42,12 @@ namespace AlkoBot.Models.Bot
                 message.Text = message.Text.ToLower();
                 var action = (message.Text.Split(' ').First()) switch
                 {
-                    "hello" => Commands.Command_hello(),
-                    "commands" => Commands.Command_commands(),
-                    _ => throw new NotImplementedException()
+                    "hello" => new Hello_command().Execute(message, botClient),
+                    "help" => new Help_command().Execute(message, botClient),
+                    _ => new Help_command().Execute(message, botClient)
                 };
+
+                await action;
             }
         }
 
