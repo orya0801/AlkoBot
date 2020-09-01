@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace AlkoBot
+﻿namespace AlkoBot
 {
     public static class AppSettings
     {
@@ -14,6 +9,6 @@ namespace AlkoBot
         public static string Name { get; set; } = "AlkoBot";
 
         //Токен бота
-        public static string Token { get; set; } = "";
+        public static string Token { get; set; } = "1382457512:AAH2LH2Ue5th9ag6cywKuq_DW-NJlMLjxz0";
     }
 }
