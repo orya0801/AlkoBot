@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200904113751_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200904113751_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200904120528_ChangeTypes.cs" />
+    <Compile Remove="Migrations\20200904120528_ChangeTypes.Designer.cs" />
+    <Compile Remove="Migrations\20200904124133_AddRecipeToCocktailTable.cs" />
+    <Compile Remove="Migrations\20200904124133_AddRecipeToCocktailTable.Designer.cs" />
+    <Compile Remove="Migrations\20200904130051_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200904130051_InitialCreate.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">

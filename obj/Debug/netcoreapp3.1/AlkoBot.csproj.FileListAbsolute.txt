@@ -90,3 +90,7 @@ E:\C# projects\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.Views.pdb
 E:\C# projects\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.dll
 E:\C# projects\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.pdb
 E:\C# projects\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\AlkoBot.genruntimeconfig.cache
+E:\C# projects\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\Razor\Views\Home\CreateCocktail.cshtml.g.cs
+E:\C# projects\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\Razor\Views\Home\CocktailDetails.cshtml.g.cs
+E:\C# projects\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\Razor\Views\Home\EditCocktail.cshtml.g.cs
+E:\C# projects\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\Razor\Views\Home\DeleteCocktail.cshtml.g.cs

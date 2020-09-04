@@ -13,7 +13,6 @@ namespace AlkoBot.Models
         public DbSet<Cocktail> Cocktails { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<FavouriteCocktail> FavouriteCocktails { get; set; }
-        public DbSet<MeasurementUnit> MeasurementUnits { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -23,10 +22,6 @@ namespace AlkoBot.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Ingredient>()
-                .HasMany(c => c.Units)
-                .WithOne(c => c.Ingredient);
-
             modelBuilder.Entity<FavouriteCocktail>().HasNoKey();
 
             modelBuilder.Entity<Recipe>()

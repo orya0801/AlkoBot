@@ -28,6 +28,9 @@ namespace AlkoBot.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Recipe")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("CocktailId");
 
                     b.ToTable("Cocktails");
@@ -58,39 +61,18 @@ namespace AlkoBot.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("MainUnitUnitId")
-                        .HasColumnType("INTEGER");
+                    b.Property<double>("Amount")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Unit")
                         .HasColumnType("TEXT");
 
                     b.HasKey("IngredientId");
 
-                    b.HasIndex("MainUnitUnitId");
-
                     b.ToTable("Ingredients");
-                });
-
-            modelBuilder.Entity("AlkoBot.Models.MeasurementUnit", b =>
-                {
-                    b.Property<int>("UnitId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<double>("Coefficient")
-                        .HasColumnType("REAL");
-
-                    b.Property<int?>("IngredientId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("UnitId");
-
-                    b.HasIndex("IngredientId");
-
-                    b.ToTable("MeasurementUnits");
                 });
 
             modelBuilder.Entity("AlkoBot.Models.Recipe", b =>
@@ -104,12 +86,10 @@ namespace AlkoBot.Migrations
                     b.Property<double>("Amount")
                         .HasColumnType("REAL");
 
-                    b.Property<int?>("MainUnitUnitId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Unit")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("CocktailId", "IngredientId");
-
-                    b.HasIndex("MainUnitUnitId");
 
                     b.ToTable("Recipes");
                 });
@@ -119,27 +99,6 @@ namespace AlkoBot.Migrations
                     b.HasOne("AlkoBot.Models.Cocktail", "Cocktail")
                         .WithMany()
                         .HasForeignKey("CocktailId");
-                });
-
-            modelBuilder.Entity("AlkoBot.Models.Ingredient", b =>
-                {
-                    b.HasOne("AlkoBot.Models.MeasurementUnit", "MainUnit")
-                        .WithMany()
-                        .HasForeignKey("MainUnitUnitId");
-                });
-
-            modelBuilder.Entity("AlkoBot.Models.MeasurementUnit", b =>
-                {
-                    b.HasOne("AlkoBot.Models.Ingredient", "Ingredient")
-                        .WithMany("Units")
-                        .HasForeignKey("IngredientId");
-                });
-
-            modelBuilder.Entity("AlkoBot.Models.Recipe", b =>
-                {
-                    b.HasOne("AlkoBot.Models.MeasurementUnit", "MainUnit")
-                        .WithMany()
-                        .HasForeignKey("MainUnitUnitId");
                 });
 #pragma warning restore 612, 618
         }
