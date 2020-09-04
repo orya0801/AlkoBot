@@ -1,0 +1,28 @@
+﻿@model AlkoBot.Models.Cocktail
+@{
+    ViewBag.Title = "Редактирование коктейля";
+}
+
+    <form asp-action="EditCocktail" asp-controller="home">
+        <div class="form-group">
+            <label asp-for="CocktailId" class="control-label">ID:</label>
+            <input type="text" asp-for="CocktailId" class="form-control" value=@Model.CocktailId disabled="disabled"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" class="control-label">Название коктейля:</label>
+            <input type="text" asp-for="Name" class="form-control" value=@Model.Name a />
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="control-label">Описание:</label>
+            <textarea asp-for="Description" class="form-control">@Model.Description</textarea>
+        </div>
+        <div class="form-group">
+            <label asp-for="Recipe" class="control-label"></label>
+            <textarea asp-for="Recipe" class="form-control">@Model.Recipe</textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Сохранить" class="btn btn-default" />
+        </div>
+    </form>
+
+

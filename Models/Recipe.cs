@@ -16,6 +16,6 @@ namespace AlkoBot.Models
         [ForeignKey("IngredientId")]
         public int IngredientId { get; set; }
         public double Amount { get; set; }
-        public MeasurementUnit MainUnit { get; set; }
+        public string Unit { get; set; }
     }
 }
