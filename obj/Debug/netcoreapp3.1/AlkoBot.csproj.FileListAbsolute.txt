@@ -94,3 +94,5 @@ E:\C# projects\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\Razor\Views\Home\CreateCo
 E:\C# projects\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\Razor\Views\Home\CocktailDetails.cshtml.g.cs
 E:\C# projects\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\Razor\Views\Home\EditCocktail.cshtml.g.cs
 E:\C# projects\AlkoBot\AlkoBot\obj\Debug\netcoreapp3.1\Razor\Views\Home\DeleteCocktail.cshtml.g.cs
+E:\C# projects\AlkoBot\AlkoBot\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+E:\C# projects\AlkoBot\AlkoBot\bin\Debug\netcoreapp3.1\Telegram.Bot.dll

@@ -13,7 +13,6 @@ namespace AlkoBot.Models
         public DbSet<Cocktail> Cocktails { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<FavouriteCocktail> FavouriteCocktails { get; set; }
-        public DbSet<Recipe> Recipes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -24,8 +23,6 @@ namespace AlkoBot.Models
         {
             modelBuilder.Entity<FavouriteCocktail>().HasNoKey();
 
-            modelBuilder.Entity<Recipe>()
-                .HasKey(c => new { c.CocktailId, c.IngredientId });
         }
  
     }

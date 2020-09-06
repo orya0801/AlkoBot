@@ -7,15 +7,20 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AlkoBot.Models;
+using AlkoBot.ViewModels;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace AlkoBot.Controllers
 {
     public class HomeController : Controller
     {
         private DatabaseContext db;
-        public HomeController(DatabaseContext context)
+        private readonly IWebHostEnvironment webHostEnvironment;
+        public HomeController(DatabaseContext context, IWebHostEnvironment hostEnvironment)
         {
             db = context;
+            webHostEnvironment = hostEnvironment;
         }
         public async Task<IActionResult> Index()
         {
@@ -28,24 +33,45 @@ namespace AlkoBot.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateCocktail(Cocktail cocktail)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateCocktail(CocktailViewModel cocktailModel)
         {
-            db.Cocktails.Add(cocktail);
-            //foreach (var ingredient in ingredients)
-            //{
-            //    db.Recipes.Add(
-            //        new Recipe()
-            //        {
-            //            CocktailId = cocktail.CocktailId,
-            //            IngredientId = ingredient.IngredientId,
-            //            // В данном случае передается единица, указанная пользователем, а не основная
-            //            Unit = ingredient.Unit,
-            //            Amount = ingredient.Amount
-            //        });
-            //}
+      
+            if(ModelState.IsValid) 
+            {
+                string uniqueFileName = UploadedFile(cocktailModel);
+                Cocktail cocktail = new Cocktail
+                {
+                    Name = cocktailModel.Name,
+                    Description = cocktailModel.Description,
+                    Recipe = cocktailModel.Recipe,
+                    CocktailPicture = uniqueFileName
+                };
 
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+                db.Cocktails.Add(cocktail);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
+
+        private string UploadedFile(CocktailViewModel cocktailModel)
+        {
+            string uniqueFileName = null;
+
+            if(cocktailModel.CocktailImage != null)
+            {
+                string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "images");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + cocktailModel.CocktailImage.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    cocktailModel.CocktailImage.CopyTo(fileStream);
+                }
+            }
+
+            return uniqueFileName;
         }
 
         [HttpGet]

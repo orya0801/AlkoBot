@@ -13,9 +13,10 @@ namespace AlkoBot.Migrations
                 {
                     CocktailId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    Recipe = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: false),
+                    Recipe = table.Column<string>(nullable: false),
+                    CocktailPicture = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -35,20 +36,6 @@ namespace AlkoBot.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ingredients", x => x.IngredientId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Recipes",
-                columns: table => new
-                {
-                    CocktailId = table.Column<int>(nullable: false),
-                    IngredientId = table.Column<int>(nullable: false),
-                    Amount = table.Column<double>(nullable: false),
-                    Unit = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Recipes", x => new { x.CocktailId, x.IngredientId });
                 });
 
             migrationBuilder.CreateTable(
@@ -83,9 +70,6 @@ namespace AlkoBot.Migrations
 
             migrationBuilder.DropTable(
                 name: "Ingredients");
-
-            migrationBuilder.DropTable(
-                name: "Recipes");
 
             migrationBuilder.DropTable(
                 name: "Cocktails");

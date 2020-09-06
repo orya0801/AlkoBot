@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AlkoBot.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200904130228_InitialCreate")]
+    [Migration("20200906151951_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,13 +24,20 @@ namespace AlkoBot.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("CocktailPicture")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Recipe")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("CocktailId");
@@ -75,25 +82,6 @@ namespace AlkoBot.Migrations
                     b.HasKey("IngredientId");
 
                     b.ToTable("Ingredients");
-                });
-
-            modelBuilder.Entity("AlkoBot.Models.Recipe", b =>
-                {
-                    b.Property<int>("CocktailId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("IngredientId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<double>("Amount")
-                        .HasColumnType("REAL");
-
-                    b.Property<string>("Unit")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("CocktailId", "IngredientId");
-
-                    b.ToTable("Recipes");
                 });
 
             modelBuilder.Entity("AlkoBot.Models.FavouriteCocktail", b =>

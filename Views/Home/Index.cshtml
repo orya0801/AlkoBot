@@ -1,29 +1,36 @@
 ﻿@model IEnumerable<AlkoBot.Models.Cocktail>
+
 @{
-    ViewBag.Title = "Все пользователи";
+    ViewData["Title"] = "Home Page";
 }
-<a asp-action="CreateCocktail">Добавить коктейль</a>
-<table class="table">
-    <tr>
-        <td>ID</td>
-        <td>Название</td>
-        <td>Лайки</td>
-        <td>Дизлайки</td>
-    </tr>
-    @foreach (var item in Model)
-    {
+
+<h4 class="text-center text-uppercase">List of employee</h4>
+
+<p>
+    <a asp-action="CreateCocktail" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i> Add New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
         <tr>
-            <td>@item.CocktailId</td>
-            <td>@item.Name</td>
-            
-            <td>0</td>
-            <td>0</td>
-            <td>
-                <a asp-action="CocktailDetails" asp-controller="Home" asp-route-id="@item.CocktailId">Подробнее</a> |
-                <a asp-action="EditCocktail" asp-controller="Home" asp-route-id="@item.CocktailId">Изменить</a> |
-                <a asp-action="DeleteCocktail" asp-controller="Home" asp-route-id="@item.CocktailId">Удалить</a>
-            </td>
+            <th>@Html.DisplayNameFor(model => model.CocktailId)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/images/@employee.CocktailPicture"
+                         class="rounded-circle"
+                         height="40" width="40"
+                         asp-append-version="true" />
+                    @employee.CocktailId
+                </td>
+                <td>@employee.Name</td>
+            </tr>
+
+        }
+    </tbody>
 </table>
 

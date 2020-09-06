@@ -1,24 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\AlkoBot\\AlkoBot\\AlkoBot.csproj": {}
+    "E:\\C# projects\\AlkoBot\\AlkoBot\\AlkoBot.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Desktop\\AlkoBot\\AlkoBot\\AlkoBot.csproj": {
+    "E:\\C# projects\\AlkoBot\\AlkoBot\\AlkoBot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\AlkoBot\\AlkoBot\\AlkoBot.csproj",
+        "projectUniqueName": "E:\\C# projects\\AlkoBot\\AlkoBot\\AlkoBot.csproj",
         "projectName": "AlkoBot",
-        "projectPath": "C:\\Users\\user\\Desktop\\AlkoBot\\AlkoBot\\AlkoBot.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\AlkoBot\\AlkoBot\\obj\\",
+        "projectPath": "E:\\C# projects\\AlkoBot\\AlkoBot\\AlkoBot.csproj",
+        "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
+        "outputPath": "E:\\C# projects\\AlkoBot\\AlkoBot\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "E:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Даниил\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -82,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

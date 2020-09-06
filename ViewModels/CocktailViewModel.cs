@@ -5,11 +5,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AlkoBot.Models
+namespace AlkoBot.ViewModels
 {
-    public class Cocktail
+    public class CocktailViewModel
     {
-        [Key]
         public int CocktailId { get; set; }
 
         [Required(ErrorMessage = "Please enter cocktail name")]
@@ -26,6 +25,6 @@ namespace AlkoBot.Models
 
         [Required(ErrorMessage = "Please choose cocktail image")]
         [Display(Name = "Cocktail Picture")]
-        public string CocktailPicture { get; set; }
+        public IFormFile CocktailImage { get; set; }
     }
 }
