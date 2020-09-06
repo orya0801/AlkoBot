@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AlkoBot.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200904130228_InitialCreate")]
+    [Migration("20200906141101_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -75,6 +75,20 @@ namespace AlkoBot.Migrations
                     b.HasKey("IngredientId");
 
                     b.ToTable("Ingredients");
+                });
+
+            modelBuilder.Entity("AlkoBot.Models.PreviousAction", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("PrevAction")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("PreviousActions");
                 });
 
             modelBuilder.Entity("AlkoBot.Models.Recipe", b =>

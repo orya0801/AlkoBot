@@ -10,6 +10,12 @@ namespace AlkoBot.Models.Bot
     public static class Bot
     {
         private static ITelegramBotClient botClient;
+        private static readonly DatabaseContext db;
+
+        static Bot()
+        {
+            db = new DatabaseContext();
+        }
 
         public static async Task Main()
         {
@@ -32,7 +38,6 @@ namespace AlkoBot.Models.Bot
         private static async void BotOnMessage(object sender, MessageEventArgs e)
         {
             Message message = e.Message;
-            Console.WriteLine($"Message Received.\nMessage type: {message.Type}\n");
 
             if (message.Type == MessageType.Text)
             {
@@ -40,14 +45,31 @@ namespace AlkoBot.Models.Bot
                 {
                     "/start" => Commands.GetCommand("Start"),
                     "Коктейли" => Commands.GetCommand("Cocktails"),
-                    "Удиви меня!" => Commands.GetCommand("Help"),
-                    "Популярное" => Commands.GetCommand("Help"),
-                    "Предложить" => Commands.GetCommand("Help"),
+                    "Удиви меня!" => Commands.GetCommand("Random"),
+                    "Популярное" => Commands.GetCommand("Popular"),
+                    "Предложить" => Commands.GetCommand("Suggest"),
                     "Помощь" => Commands.GetCommand("Help"),
                     _ => Commands.GetCommand("Help")
                 };
 
                 await action.Execute(message, botClient);
+
+                if (db.PreviousActions.Find("UserId") == null)
+                {
+                    PreviousAction prevAction = new PreviousAction
+                    {
+                        UserId = message.From.Id,
+                        PrevAction = action.Name
+                    };
+                    db.PreviousActions.Add(prevAction);
+                }
+                else
+                {
+                    PreviousAction prevAction = db.PreviousActions.Find("UserId");
+                    prevAction.PrevAction = action.Name;
+                    db.PreviousActions.Update(prevAction);
+                }
+                db.SaveChanges();
             }
         }
     }
