@@ -39,6 +39,19 @@ namespace AlkoBot.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PreviousActions",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PrevAction = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PreviousActions", x => x.UserId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "FavouriteCocktails",
                 columns: table => new
                 {
@@ -70,6 +83,9 @@ namespace AlkoBot.Migrations
 
             migrationBuilder.DropTable(
                 name: "Ingredients");
+
+            migrationBuilder.DropTable(
+                name: "PreviousActions");
 
             migrationBuilder.DropTable(
                 name: "Cocktails");

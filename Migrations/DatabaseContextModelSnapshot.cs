@@ -82,6 +82,20 @@ namespace AlkoBot.Migrations
                     b.ToTable("Ingredients");
                 });
 
+            modelBuilder.Entity("AlkoBot.Models.PreviousAction", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("PrevAction")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("PreviousActions");
+                });
+
             modelBuilder.Entity("AlkoBot.Models.FavouriteCocktail", b =>
                 {
                     b.HasOne("AlkoBot.Models.Cocktail", "Cocktail")

@@ -13,7 +13,7 @@ namespace AlkoBot.Models
         public DbSet<Cocktail> Cocktails { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<FavouriteCocktail> FavouriteCocktails { get; set; }
-
+        public DbSet<PreviousAction> PreviousActions { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Filename=Alkobot.db");

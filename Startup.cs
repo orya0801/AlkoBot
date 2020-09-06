@@ -64,7 +64,7 @@ namespace AlkoBot
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            //Bot.Main().Wait();
+            Task.Run(() => Bot.Main().Wait());
         }
     }
 }
