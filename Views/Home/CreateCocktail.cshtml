@@ -6,47 +6,43 @@
     ViewData["Title"] = "CreateCocktail";
 }
 
-<div class="col-md-10 mx-auto py-4">
-    <div class="card">
-        <div class="card-header bg-primary text-uppercase text-white">
-            <h4>Add New </h4>
-        </div>
-        <form enctype="multipart/form-data" asp-action="CreateCocktail">
+<h4>Новый коктейль</h4>
 
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
+<form enctype="multipart/form-data" asp-action="CreateCocktail">
 
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Recipe" class="control-label"></label>
-                <input asp-for="Recipe" class="form-control" />
-                <span asp-validation-for="Recipe" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="CocktailImage" class="control-label"></label>
-                <div class="custom-file">
-                    <input asp-for="CocktailImage" class="custom-file-input" id="customFile">
-                    <label class="custom-file-label" for="customFile">Choose file</label>
-                </div>
-                <span asp-validation-for="CocktailImage" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <input type="submit" value="submit" class="btn btn-sm btn-primary rounded-0 text-uppercase" />
-                <a asp-action="Index" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-fast-backward"></i> Back to List</a>
-            </div>
-        </form>
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
-</div>
+
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Recipe" class="control-label"></label>
+        <textarea asp-for="Recipe" class="form-control"></textarea>
+        <span asp-validation-for="Recipe" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CocktailImage" class="control-label"></label>
+        <div class="custom-file">
+            <input asp-for="CocktailImage" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+        </div>
+        <span asp-validation-for="CocktailImage" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn" />
+        <a asp-action="Index" class="btn">Назад</a>
+    </div>
+</form>
+
 
 @section scripts{
     <script type="text/javascript">

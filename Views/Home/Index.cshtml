@@ -4,30 +4,31 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h4 class="text-center text-uppercase">List of employee</h4>
+<h4 class="text-center text-uppercase">Коктейли</h4>
 
-<p>
-    <a asp-action="CreateCocktail" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i> Add New</a>
-</p>
-<table class="table table-bordered">
+<a asp-action="CreateCocktail">Add New</a>
+
+<table class="table">
     <thead>
         <tr>
             <th>@Html.DisplayNameFor(model => model.CocktailId)</th>
             <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>Действия</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var employee in Model)
+        @foreach (var item in Model)
         {
             <tr>
                 <td>
-                    <img src="~/images/@employee.CocktailPicture"
-                         class="rounded-circle"
-                         height="40" width="40"
-                         asp-append-version="true" />
-                    @employee.CocktailId
+                    @item.CocktailId
                 </td>
-                <td>@employee.Name</td>
+                <td>@item.Name</td>
+                <td>
+                    <a asp-action="CocktailDetails" asp-controller="Home" asp-route-id="@item.CocktailId">Подробнее</a> |
+                    <a asp-action="EditCocktail" asp-controller="Home" asp-route-id="@item.CocktailId">Изменить</a> |
+                    <a asp-action="DeleteCocktail" asp-controller="Home" asp-route-id="@item.CocktailId">Удалить</a>
+                </td>
             </tr>
 
         }
